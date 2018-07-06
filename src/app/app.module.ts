@@ -8,11 +8,14 @@ import { ProjectListingComponent } from './project-listing/project-listing.compo
 import { ClassListingComponent } from './class-listing/class-listing.component';
 import { PropertyListingComponent } from './property-listing/property-listing.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 const appRoutes: Routes = [
+  {path:"",redirectTo:"home",pathMatch:'full'},
   { path: 'bean-listing', component: BeanListingComponent },
   {path:'home',component:HomeComponent},
   {path:'project', component:ProjectListingComponent},
-  {path:'classes', component:ClassListingComponent}
+  {path:'classes', component:ClassListingComponent},
+  {path:"**",component:NotFoundComponent}
 ];
 
 @NgModule({
@@ -22,7 +25,8 @@ const appRoutes: Routes = [
     ProjectListingComponent,
     ClassListingComponent,
     PropertyListingComponent,
-    HomeComponent
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
